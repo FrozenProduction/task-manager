@@ -65,16 +65,20 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Allow origins from env var, comma-separated. Defaults to localhost for dev.
+        // Allow origins from env var, comma-separated. Use origin *patterns* so
+        // wildcards like https://*.vercel.app work. Spec requires credentials=false
+        // when patterns are used; safe here because we authenticate with Bearer JWT.
         String origins = System.getenv("CORS_ALLOWED_ORIGINS");
+        List<String> allowed;
         if (origins == null || origins.isBlank()) {
-            configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+            allowed = List.of("http://localhost:5173");
         } else {
-            configuration.setAllowedOrigins(List.of(origins.split(",\\s*")));
+            allowed = List.of(origins.split(",\\s*"));
         }
+        configuration.setAllowedOriginPatterns(allowed);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
