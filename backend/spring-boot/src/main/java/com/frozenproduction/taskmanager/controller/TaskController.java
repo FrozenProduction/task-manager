@@ -3,6 +3,8 @@ package com.frozenproduction.taskmanager.controller;
 import com.frozenproduction.taskmanager.dto.CreateTaskRequest;
 import com.frozenproduction.taskmanager.dto.TaskDto;
 import com.frozenproduction.taskmanager.dto.UpdateTaskRequest;
+import com.frozenproduction.taskmanager.dto.ProjectDto;
+import com.frozenproduction.taskmanager.service.ProjectService;
 import com.frozenproduction.taskmanager.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private ProjectService projectService;
+
     @PostMapping
     public ResponseEntity<TaskDto> createTask(@Valid @RequestBody CreateTaskRequest request) {
         Long userId = getCurrentUserId();
@@ -32,6 +37,18 @@ public class TaskController {
     public ResponseEntity<List<TaskDto>> getTasksByProject(@PathVariable Long projectId) {
         Long userId = getCurrentUserId();
         return ResponseEntity.ok(taskService.getTasksByProject(projectId, userId));
+    }
+
+    @GetMapping("/mine")
+    public ResponseEntity<List<TaskDto>> getMyTasks() {
+        Long userId = getCurrentUserId();
+        // Correct dashboard metric: all tasks in all projects owned by this user.
+        List<ProjectDto> projects = projectService.getProjectsByUser(userId);
+        List<TaskDto> all = new java.util.ArrayList<>();
+        for (ProjectDto p : projects) {
+            all.addAll(taskService.getTasksByProject(p.getId(), userId));
+        }
+        return ResponseEntity.ok(all);
     }
 
     @GetMapping("/assigned")

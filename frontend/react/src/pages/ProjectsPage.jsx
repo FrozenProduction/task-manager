@@ -95,17 +95,18 @@ export default function ProjectsPage() {
         ) : (
           <div style={styles.projectList}>
             {projects.map((project) => (
-              <div
+              <Link
                 key={project.id}
+                to={`/projects/${project.id}`}
                 style={styles.projectCard}
-                onDoubleClick={() => navigate(`/projects/${project.id}`)}
               >
                 <div style={styles.projectHeader}>
-                  <Link to={`/projects/${project.id}`} style={styles.projectName}>
+                  <span style={styles.projectName}>
                     {project.name}
-                  </Link>
+                  </span>
                   <button
                     onClick={(e) => {
+                      e.preventDefault();
                       e.stopPropagation();
                       setDeleteTarget(project);
                       setDeleteConfirm(true);
@@ -125,7 +126,7 @@ export default function ProjectsPage() {
                     Created: {new Date(project.createdAt).toLocaleDateString()}
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
