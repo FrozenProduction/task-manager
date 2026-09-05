@@ -13,6 +13,10 @@ A full-stack project management application built with Spring Boot 3.2.4 (backen
 
 ![Login](docs/screenshots/login.png)
 
+**Registration page (live frontend):**
+
+![Register](docs/screenshots/register.png)
+
 > The dashboard and other authenticated pages require the backend to be deployed. See [Deploying the Backend](#deploying-the-backend) below.
 
 - **Backend:** REST API with JWT authentication, Spring Security, BCrypt, H2 (dev) / PostgreSQL (prod), Swagger UI, and Maven build.
