@@ -1,0 +1,31 @@
+#!/bin/sh
+# Default Maven Wrapper script
+# Generated for task-manager — Spring Boot 3.2.4
+# This script downloads and runs Maven on first use.
+
+WRAPPER_DIR=".mvn/wrapper"
+WRAPPER_PROPERTIES="${WRAPPER_DIR}/maven-wrapper.properties"
+WRAPPER_JAR="${WRAPPER_DIR}/maven-wrapper.jar"
+
+# If the wrapper jar doesn't exist, download it
+if [ ! -f "${WRAPPER_JAR}" ]; then
+    echo "Downloading Maven Wrapper..."
+    MAVEN_WRAPPER_DOWNLOAD_URL=$(grep "wrapperUrl=" "${WRAPPER_PROPERTIES}" | cut -d'=' -f2)
+    if [ -z "${MAVEN_WRAPPER_DOWNLOAD_URL}" ]; then
+        echo "ERROR: wrapperUrl not found in ${WRAPPER_PROPERTIES}"
+        exit 1
+    fi
+    curl -fsSL "${MAVEN_WRAPPER_DOWNLOAD_URL}" -o "${WRAPPER_JAR}"
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to download Maven Wrapper. Check network connection."
+        exit 1
+    fi
+    echo "Maven Wrapper downloaded successfully."
+fi
+
+# Get Maven version from properties
+MAVEN_VERSION=$(grep "distributionUrl=" "${WRAPPER_PROPERTIES}" | sed 's/.*maven-wrapper\///;s/\/maven-wrapper-.*//')
+
+# Execute Maven
+echo "Running Maven ${MAVEN_VERSION}..."
+exec java -jar "${WRAPPER_JAR}" "$@"

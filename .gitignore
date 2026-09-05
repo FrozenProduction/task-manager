@@ -1,0 +1,51 @@
+# IDE
+.idea/
+.vscode/
+
+# Java
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Production database (NUNCA commitar)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment files (NUNCA commitar)
+.env
+.env.local
+.env.*.local
+application-prod.properties
+
+# H2 console (não é código fonte)
+h2/
+
+# Frontend node_modules
+frontend/react/node_modules/
+
+# Build output
+frontend/react/dist/
+
+# Test coverage
+coverage/
+.coverage
+htmlcov/
+
+# Misc
+*.swp
+*.swo
+*~
