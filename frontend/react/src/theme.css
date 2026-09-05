@@ -444,3 +444,9 @@ body {
   text-align: center;
   padding: 1.5rem;
 }
+/* Dashboard layout fix (per dashboard1.png) */
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.sectionTitle { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+/* Projects card fix (per projects1.png) */
+.project-card { background: var(--surface); border: var(--border) 1px solid; border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow-sm); }
+.project-card button { float: none; display: inline-block; }
