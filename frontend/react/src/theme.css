@@ -129,3 +129,140 @@ body {
 .link-text:hover {
   text-decoration: underline;
 }
+
+/* === Dashboard / Projects shared === */
+.container-full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  font-family: var(--font);
+}
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+}
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logout-button {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.logout-button:hover {
+  background: var(--surface-hover);
+}
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.section {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.stat-card {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.project-row:hover {
+  background: var(--surface-hover);
+}
+.project-row-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.project-row-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.dashboard-actions {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.view-projects-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.view-projects-link:hover {
+  background: var(--primary-hover);
+}
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+.hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0;
+}
