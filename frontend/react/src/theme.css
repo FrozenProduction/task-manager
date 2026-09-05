@@ -266,3 +266,107 @@ body {
   text-align: center;
   margin: 0;
 }
+
+/* === Projects / ProjectDetail shared === */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.createButton {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.createButton:hover {
+  background: var(--primary-hover);
+}
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.projectCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.15s ease;
+}
+.projectCard:hover {
+  box-shadow: var(--shadow-hover);
+}
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.projectName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+.projectDescription {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem 0;
+}
+.projectMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.metaItem {
+  font-size: 0.8rem;
+}
+.deleteProjectButton {
+  background: none;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--danger);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.deleteProjectButton:hover {
+  background: #fef2f2;
+}
+.retryButton {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.retryButton:hover {
+  background: var(--surface-hover);
+}
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+.loading {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 1.5rem;
+}
