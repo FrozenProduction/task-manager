@@ -37,62 +37,62 @@ export default function RegisterPage() {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>Create Account</h1>
-        <p style={styles.subtitle}>Join Task Manager</p>
+    <div className="container">
+      <div className="card">
+        <h1 className="page-title">Create Account</h1>
+        <p className="subtitle">Join Task Manager</p>
 
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <div style={styles.field}>
-            <label style={styles.label}>Username</label>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="field">
+            <label className="label">Username</label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              style={styles.input}
+              className="input"
               placeholder="Choose a username"
               required
             />
           </div>
 
-          <div style={styles.field}>
-            <label style={styles.label}>Email</label>
+          <div className="field">
+            <label className="label">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={styles.input}
+              className="input"
               placeholder="your@email.com"
               required
             />
           </div>
 
-          <div style={styles.field}>
-            <label style={styles.label}>Password</label>
+          <div className="field">
+            <label className="label">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              style={styles.input}
+              className="input"
               placeholder="At least 6 characters"
               required
             />
           </div>
 
-          {error && <p style={styles.error}>{error}</p>}
+          {error && <p className="error">{error}</p>}
 
           <button
             type="submit"
             disabled={loading || !username || !email || !password}
-            style={styles.button}
+            className="btn btn-primary"
           >
             {loading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
-        <p style={styles.link}>
+        <p className="link">
           Already have an account?{" "}
-          <Link to="/login" style={styles.linkText}>
+          <Link to="/login" className="link-text">
             Sign in
           </Link>
         </p>
@@ -100,81 +100,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#f5f5f5",
-    fontFamily: "'Segoe UI', system-ui, sans-serif",
-  },
-  card: {
-    backgroundColor: "white",
-    padding: "2rem",
-    borderRadius: "8px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-    width: "100%",
-    maxWidth: "400px",
-  },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: "600",
-    marginBottom: "0.25rem",
-    color: "#1a1a1a",
-  },
-  subtitle: {
-    color: "#666",
-    marginBottom: "1.5rem",
-    fontSize: "0.9rem",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1rem",
-  },
-  field: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.25rem",
-  },
-  label: {
-    fontSize: "0.85rem",
-    fontWeight: "500",
-    color: "#333",
-  },
-  input: {
-    padding: "0.5rem 0.75rem",
-    border: "1px solid #ddd",
-    borderRadius: "4px",
-    fontSize: "1rem",
-  },
-  button: {
-    padding: "0.6rem",
-    backgroundColor: "#4f46e5",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    fontSize: "1rem",
-    fontWeight: "500",
-    cursor: "pointer",
-    marginTop: "0.5rem",
-  },
-  error: {
-    color: "#dc2626",
-    fontSize: "0.85rem",
-    margin: 0,
-  },
-  link: {
-    marginTop: "1rem",
-    textAlign: "center",
-    color: "#666",
-    fontSize: "0.85rem",
-  },
-  linkText: {
-    color: "#4f46e5",
-    textDecoration: "none",
-    fontWeight: "500",
-  },
-};
