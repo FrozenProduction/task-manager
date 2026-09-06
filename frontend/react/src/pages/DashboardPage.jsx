@@ -60,7 +60,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container-full">
       <header className="header">
         <div className="header-content">
           <h1 className="title">Dashboard</h1>

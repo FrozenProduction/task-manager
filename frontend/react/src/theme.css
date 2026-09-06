@@ -11,6 +11,7 @@
   --danger: #dc2626;
   --radius: 8px;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
