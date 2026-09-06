@@ -62,11 +62,11 @@ export default function DashboardPage() {
   return (
     <div className="container">
       <header className="header">
-        <div className="headerContent">
+        <div className="header-content">
           <h1 className="title">Dashboard</h1>
           <div className="userInfo">
             <span className="username">{user?.username}</span>
-            <button onClick={logout} className="logoutButton">
+            <button onClick={logout} className="logout-button">
               Sign out
             </button>
           </div>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
 
       <main className="main">
         <section className="section">
-          <h2 className="sectionTitle">Create new project</h2>
+          <h2 className="section-title">Create new project</h2>
           <form onSubmit={handleCreate} className="form">
             <div className="field">
               <label className="label">Project name</label>
@@ -101,7 +101,7 @@ export default function DashboardPage() {
             <button
               type="submit"
               disabled={creating || !name.trim()}
-              className="button"
+              className="btn btn-primary"
             >
               {creating ? "Creating..." : "Create Project"}
             </button>
@@ -109,22 +109,22 @@ export default function DashboardPage() {
         </section>
 
         <section className="section">
-          <h2 className="sectionTitle">Quick stats</h2>
+          <h2 className="section-title">Quick stats</h2>
           {projectsError ? (
             <p className="error">Could not load stats: {projectsError}</p>
           ) : (
-            <div className="statsGrid">
-              <div className="statCard">
-                <span className="statValue">
+            <div className="stats-grid">
+              <div className="stat-card">
+                <span className="stat-value">
                   {projectsLoading ? "…" : projects.length}
                 </span>
-                <span className="statLabel">Projects</span>
+                <span className="stat-label">Projects</span>
               </div>
-              <div className="statCard">
-                <span className="statValue">
+              <div className="stat-card">
+                <span className="stat-value">
                   {tasksLoading ? "…" : totalTasks}
                 </span>
-                <span className="statLabel">Tasks</span>
+                <span className="stat-label">Tasks</span>
               </div>
             </div>
           )}
@@ -135,8 +135,8 @@ export default function DashboardPage() {
           </p>
 
           {projects.length > 0 && (
-            <div className="dashboardActions">
-              <Link to="/projects" className="viewProjectsLink">
+            <div className="dashboard-actions">
+              <Link to="/projects" className="view-projects-link">
                 View my projects ({projects.length}) →
               </Link>
             </div>
@@ -145,17 +145,17 @@ export default function DashboardPage() {
 
         {projects.length > 0 && (
           <section className="section">
-            <h2 className="sectionTitle">Your projects</h2>
-            <div className="projectList">
+            <h2 className="section-title">Your projects</h2>
+            <div className="project-list">
               {projects.map((p) => (
                 <Link
                   key={p.id}
                   to={`/projects/${p.id}`}
-                  className="projectRow"
+                  className="project-row"
                 >
-                  <span className="projectRowName">{p.name}</span>
+                  <span className="project-row-name">{p.name}</span>
                   {p.description && (
-                    <span className="projectRowDesc">{p.description}</span>
+                    <span className="project-row-desc">{p.description}</span>
                   )}
                 </Link>
               ))}
@@ -165,7 +165,7 @@ export default function DashboardPage() {
       </main>
 
       <footer className="footer">
-        <a href="https://github.com/FrozenProduction/task-manager" target="_blank" rel="noopener noreferrer" className="footerLink">
+        <a href="https://github.com/FrozenProduction/task-manager" target="_blank" rel="noopener noreferrer" className="footer-link">
           View on GitHub
         </a>
       </footer>
